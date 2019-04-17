@@ -1,0 +1,21 @@
+﻿body {
+}
+
+.navbar {
+    border-bottom: #d3d3d3 1px solid;
+}
+
+.baseball-img {
+    -webkit-animation: spin 3s ease-in-out linear;
+    animation: rotation 2s infinite linear;
+}
+
+@-webkit-keyframes rotation {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(359deg);
+    }
+}
