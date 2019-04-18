@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="BaseballGameAnalytics.Index" %>
-
+<%@ Register Src="~/WebUserControl1.ascx" TagName="WebControl" TagPrefix="TWebControl" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -9,14 +9,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="index.css" />
-    <link rel="icon" href="baseball.png" />
+    <link rel="icon" href="Images/baseball.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baseball Analytics</title>
 </head>
 <body>
      <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
-            <img src="baseball.png" width="50" height="auto" class="d-inline-block align-top baseball-img" alt="" />
+            <img src="Images/baseball.png" width="50" height="auto" class="d-inline-block align-top baseball-img" alt="" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -38,36 +38,43 @@
             </ul>
         </div>
     </nav>
+    <div class="jumbotron" style="text-align: center;"><h1>Welcome to Baseball Analytics</h1></div>
     <div class="row">
-    <div class="col-sm-4">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum at varius vel pharetra vel turpis nunc eget lorem. Lectus sit amet est placerat in egestas. Sit amet justo donec enim diam vulputate ut pharetra. Nibh ipsum consequat nisl vel pretium lectus quam. Pulvinar neque laoreet suspendisse interdum consectetur libero. Accumsan tortor posuere ac ut consequat semper viverra. Ut sem nulla pharetra diam sit amet. Faucibus interdum posuere lorem ipsum dolor sit amet. Non odio euismod lacinia at quis risus sed vulputate odio. Etiam tempor orci eu lobortis elementum. Adipiscing enim eu turpis egestas pretium aenean pharetra. Senectus et netus et malesuada fames ac. Enim neque volutpat ac tincidunt vitae.
-Magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Aenean pharetra magna ac placerat vestibulum lectus mauris ultrices eros. Consectetur a erat nam at lectus urna. Consequat mauris nunc congue nisi. Nisi lacus sed viverra tellus in hac habitasse platea dictumst. Id aliquet lectus proin nibh nisl condimentum id. Diam ut venenatis tellus in metus vulputate. Volutpat blandit aliquam etiam erat velit. Ligula ullamcorper malesuada proin libero nunc. Egestas diam in arcu cursus. Tincidunt eget nullam non nisi est sit amet facilisis magna. Habitant morbi tristique senectus et netus et malesuada fames ac. Sed libero enim sed faucibus turpis in eu mi bibendum. Integer eget aliquet nibh praesent tristique magna sit amet purus. Mattis pellentesque id nibh tortor id aliquet lectus. Duis at consectetur lorem donec massa sapien faucibus et. Tempor id eu nisl nunc mi. Sem et tortor consequat id porta nibh venenatis cras.
-Proin sed libero enim sed faucibus turpis in. Purus semper eget duis at tellus at urna condimentum mattis. Cras adipiscing enim eu turpis egestas pretium aenean pharetra magna. Massa enim nec dui nunc mattis enim. Leo vel orci porta non pulvinar neque laoreet suspendisse interdum. Mi sit amet mauris commodo quis imperdiet massa. Auctor eu augue ut lectus arcu. Volutpat commodo sed egestas egestas fringilla phasellus faucibus scelerisque. Id diam vel quam elementum pulvinar etiam non quam. Cras tincidunt lobortis feugiat vivamus at augue eget. Quis ipsum suspendisse ultrices gravida dictum fusce. Fermentum odio eu feugiat pretium nibh ipsum consequat. Massa tempor nec feugiat nisl pretium fusce id velit ut. Ipsum consequat nisl vel pretium lectus. Maecenas accumsan lacus vel facilisis volutpat est velit. Proin sagittis nisl rhoncus mattis rhoncus urna neque viverra. Pellentesque habitant morbi tristique senectus et netus et malesuada.
-Lacus suspendisse faucibus interdum posuere lorem ipsum dolor. Porttitor lacus luctus accumsan tortor posuere ac. Tincidunt ornare massa eget egestas purus viverra accumsan in nisl. Amet est placerat in egestas erat imperdiet. Blandit cursus risus at ultrices. Sagittis eu volutpat odio facilisis mauris sit amet massa vitae. Nullam non nisi est sit amet facilisis magna. Quam pellentesque nec nam aliquam sem et tortor consequat id. Nullam ac tortor vitae purus faucibus. Purus gravida quis blandit turpis cursus in hac. Faucibus turpis in eu mi. Netus et malesuada fames ac turpis egestas integer. Pellentesque habitant morbi tristique senectus et netus et malesuada. Nisi quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus.
-Molestie nunc non blandit massa enim nec dui nunc. Et sollicitudin ac orci phasellus egestas tellus. Convallis convallis tellus id interdum velit laoreet. Leo vel fringilla est ullamcorper eget nulla. Cursus vitae congue mauris rhoncus aenean. Quis auctor elit sed vulputate mi sit. Varius duis at consectetur lorem donec massa sapien faucibus et. Scelerisque varius morbi enim nunc faucibus a pellentesque sit amet. Egestas pretium aenean pharetra magna ac. Ante in nibh mauris cursus mattis. Et molestie ac feugiat sed lectus. Egestas dui id ornare arcu odio ut sem.
-    </div>
-    <div class="col-sm-4">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum at varius vel pharetra vel turpis nunc eget lorem. Lectus sit amet est placerat in egestas. Sit amet justo donec enim diam vulputate ut pharetra. Nibh ipsum consequat nisl vel pretium lectus quam. Pulvinar neque laoreet suspendisse interdum consectetur libero. Accumsan tortor posuere ac ut consequat semper viverra. Ut sem nulla pharetra diam sit amet. Faucibus interdum posuere lorem ipsum dolor sit amet. Non odio euismod lacinia at quis risus sed vulputate odio. Etiam tempor orci eu lobortis elementum. Adipiscing enim eu turpis egestas pretium aenean pharetra. Senectus et netus et malesuada fames ac. Enim neque volutpat ac tincidunt vitae.
-Magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Aenean pharetra magna ac placerat vestibulum lectus mauris ultrices eros. Consectetur a erat nam at lectus urna. Consequat mauris nunc congue nisi. Nisi lacus sed viverra tellus in hac habitasse platea dictumst. Id aliquet lectus proin nibh nisl condimentum id. Diam ut venenatis tellus in metus vulputate. Volutpat blandit aliquam etiam erat velit. Ligula ullamcorper malesuada proin libero nunc. Egestas diam in arcu cursus. Tincidunt eget nullam non nisi est sit amet facilisis magna. Habitant morbi tristique senectus et netus et malesuada fames ac. Sed libero enim sed faucibus turpis in eu mi bibendum. Integer eget aliquet nibh praesent tristique magna sit amet purus. Mattis pellentesque id nibh tortor id aliquet lectus. Duis at consectetur lorem donec massa sapien faucibus et. Tempor id eu nisl nunc mi. Sem et tortor consequat id porta nibh venenatis cras.
-Proin sed libero enim sed faucibus turpis in. Purus semper eget duis at tellus at urna condimentum mattis. Cras adipiscing enim eu turpis egestas pretium aenean pharetra magna. Massa enim nec dui nunc mattis enim. Leo vel orci porta non pulvinar neque laoreet suspendisse interdum. Mi sit amet mauris commodo quis imperdiet massa. Auctor eu augue ut lectus arcu. Volutpat commodo sed egestas egestas fringilla phasellus faucibus scelerisque. Id diam vel quam elementum pulvinar etiam non quam. Cras tincidunt lobortis feugiat vivamus at augue eget. Quis ipsum suspendisse ultrices gravida dictum fusce. Fermentum odio eu feugiat pretium nibh ipsum consequat. Massa tempor nec feugiat nisl pretium fusce id velit ut. Ipsum consequat nisl vel pretium lectus. Maecenas accumsan lacus vel facilisis volutpat est velit. Proin sagittis nisl rhoncus mattis rhoncus urna neque viverra. Pellentesque habitant morbi tristique senectus et netus et malesuada.
-Lacus suspendisse faucibus interdum posuere lorem ipsum dolor. Porttitor lacus luctus accumsan tortor posuere ac. Tincidunt ornare massa eget egestas purus viverra accumsan in nisl. Amet est placerat in egestas erat imperdiet. Blandit cursus risus at ultrices. Sagittis eu volutpat odio facilisis mauris sit amet massa vitae. Nullam non nisi est sit amet facilisis magna. Quam pellentesque nec nam aliquam sem et tortor consequat id. Nullam ac tortor vitae purus faucibus. Purus gravida quis blandit turpis cursus in hac. Faucibus turpis in eu mi. Netus et malesuada fames ac turpis egestas integer. Pellentesque habitant morbi tristique senectus et netus et malesuada. Nisi quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus.
-Molestie nunc non blandit massa enim nec dui nunc. Et sollicitudin ac orci phasellus egestas tellus. Convallis convallis tellus id interdum velit laoreet. Leo vel fringilla est ullamcorper eget nulla. Cursus vitae congue mauris rhoncus aenean. Quis auctor elit sed vulputate mi sit. Varius duis at consectetur lorem donec massa sapien faucibus et. Scelerisque varius morbi enim nunc faucibus a pellentesque sit amet. Egestas pretium aenean pharetra magna ac. Ante in nibh mauris cursus mattis. Et molestie ac feugiat sed lectus. Egestas dui id ornare arcu odio ut sem.
-    </div>
-    <div class="col-sm-4">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum at varius vel pharetra vel turpis nunc eget lorem. Lectus sit amet est placerat in egestas. Sit amet justo donec enim diam vulputate ut pharetra. Nibh ipsum consequat nisl vel pretium lectus quam. Pulvinar neque laoreet suspendisse interdum consectetur libero. Accumsan tortor posuere ac ut consequat semper viverra. Ut sem nulla pharetra diam sit amet. Faucibus interdum posuere lorem ipsum dolor sit amet. Non odio euismod lacinia at quis risus sed vulputate odio. Etiam tempor orci eu lobortis elementum. Adipiscing enim eu turpis egestas pretium aenean pharetra. Senectus et netus et malesuada fames ac. Enim neque volutpat ac tincidunt vitae.
-
-Magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Aenean pharetra magna ac placerat vestibulum lectus mauris ultrices eros. Consectetur a erat nam at lectus urna. Consequat mauris nunc congue nisi. Nisi lacus sed viverra tellus in hac habitasse platea dictumst. Id aliquet lectus proin nibh nisl condimentum id. Diam ut venenatis tellus in metus vulputate. Volutpat blandit aliquam etiam erat velit. Ligula ullamcorper malesuada proin libero nunc. Egestas diam in arcu cursus. Tincidunt eget nullam non nisi est sit amet facilisis magna. Habitant morbi tristique senectus et netus et malesuada fames ac. Sed libero enim sed faucibus turpis in eu mi bibendum. Integer eget aliquet nibh praesent tristique magna sit amet purus. Mattis pellentesque id nibh tortor id aliquet lectus. Duis at consectetur lorem donec massa sapien faucibus et. Tempor id eu nisl nunc mi. Sem et tortor consequat id porta nibh venenatis cras.
-
-Proin sed libero enim sed faucibus turpis in. Purus semper eget duis at tellus at urna condimentum mattis. Cras adipiscing enim eu turpis egestas pretium aenean pharetra magna. Massa enim nec dui nunc mattis enim. Leo vel orci porta non pulvinar neque laoreet suspendisse interdum. Mi sit amet mauris commodo quis imperdiet massa. Auctor eu augue ut lectus arcu. Volutpat commodo sed egestas egestas fringilla phasellus faucibus scelerisque. Id diam vel quam elementum pulvinar etiam non quam. Cras tincidunt lobortis feugiat vivamus at augue eget. Quis ipsum suspendisse ultrices gravida dictum fusce. Fermentum odio eu feugiat pretium nibh ipsum consequat. Massa tempor nec feugiat nisl pretium fusce id velit ut. Ipsum consequat nisl vel pretium lectus. Maecenas accumsan lacus vel facilisis volutpat est velit. Proin sagittis nisl rhoncus mattis rhoncus urna neque viverra. Pellentesque habitant morbi tristique senectus et netus et malesuada.
-
-Lacus suspendisse faucibus interdum posuere lorem ipsum dolor. Porttitor lacus luctus accumsan tortor posuere ac. Tincidunt ornare massa eget egestas purus viverra accumsan in nisl. Amet est placerat in egestas erat imperdiet. Blandit cursus risus at ultrices. Sagittis eu volutpat odio facilisis mauris sit amet massa vitae. Nullam non nisi est sit amet facilisis magna. Quam pellentesque nec nam aliquam sem et tortor consequat id. Nullam ac tortor vitae purus faucibus. Purus gravida quis blandit turpis cursus in hac. Faucibus turpis in eu mi. Netus et malesuada fames ac turpis egestas integer. Pellentesque habitant morbi tristique senectus et netus et malesuada. Nisi quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus.
-
-Molestie nunc non blandit massa enim nec dui nunc. Et sollicitudin ac orci phasellus egestas tellus. Convallis convallis tellus id interdum velit laoreet. Leo vel fringilla est ullamcorper eget nulla. Cursus vitae congue mauris rhoncus aenean. Quis auctor elit sed vulputate mi sit. Varius duis at consectetur lorem donec massa sapien faucibus et. Scelerisque varius morbi enim nunc faucibus a pellentesque sit amet. Egestas pretium aenean pharetra magna ac. Ante in nibh mauris cursus mattis. Et molestie ac feugiat sed lectus. Egestas dui id ornare arcu odio ut sem.
-    </div>
+        <div class="col-lg-4">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="Images/graph.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Tableau Data Vizualizations</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="tableau.html" class="btn btn-danger">Explore!</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="Images/pitcher.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Pitcher Predictions</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="pitcher.aspx" class="btn btn-danger">Lets Go!</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="Images/batter.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Batter Predictions</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="batter.aspx" class="btn btn-danger">Take Me There!</a>
+                </div>
+            </div>
+        </div>
     </div>
     <form id="form1" runat="server">
         <div>
         </div>
     </form>
+    <TWebControl:WebControl runat="server" />
 </body>
 </html>
