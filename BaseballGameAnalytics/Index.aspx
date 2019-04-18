@@ -10,15 +10,33 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="index.css" />
     <link rel="icon" href="baseball.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baseball Analytics</title>
 </head>
 <body>
-    <!--Navbar-->
-    <nav class="navbar navbar-expand-lg">
-      <a class="navbar-brand" href="#">
-        <img src="baseball.png" width="30" height="30" class="d-inline-block align-top baseball-img" alt="">
-            Baseball Analytics
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="baseball.png" width="50" height="auto" class="d-inline-block align-top baseball-img" alt="" />
         </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Baseball Analytics</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tableau.html">Tableau</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Pitcher.aspx">Pitcher</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Batter.aspx">Batter</a>
+                </li>
+            </ul>
+        </div>
     </nav>
     <div class="row">
     <div class="col-sm-4">
