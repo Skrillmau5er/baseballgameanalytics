@@ -31,5 +31,18 @@ namespace BaseballGameAnalytics
             Players.DataBind();
             connection.Close();
         }
+
+        protected void pitcherButton_Click(object sender, EventArgs e)
+        {
+            var client = new RestClient("https://ussouthcentral.services.azureml.net/workspaces/a05d78f812b0420c86553fae3834a75d/services/a17779b2187b4b338c4e7f54287f9d65/execute?api-version=2.0&details=true");
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("Postman-Token", "91f0fa07-9141-4e34-9d14-548556e5c96d");
+            request.AddHeader("cache-control", "no-cache");
+            request.AddHeader("Content-Type", "application/json");
+            request.AddHeader("Authorization", "Bearer 0ij/DD0eVoXw4yJcy6Wma02uvJNAyAbJkVFIOrzkoI3v6evdVnB8h6iVqc5HK/fvJohX/6w2jgIb5xQs5L8r0g==");
+            request.AddParameter("undefined", "{\r\n  \"Inputs\": {\r\n    \"input1\": {\r\n      \"ColumnNames\": [\r\n        \"b_count\",\r\n        \"s_count\",\r\n        \"prev1\",\r\n        \"prev2\",\r\n        \"prev3\",\r\n        \"prev4\",\r\n        \"prev5\",\r\n        \"inning\",\r\n        \"p_throws\",\r\n        \"pitcher_id\"\r\n      ],\r\n      \"Values\": [\r\n        [\r\n          \"1\",\r\n          \"2\",\r\n          \"FF\",\r\n          \"FF\",\r\n          \"FF\",\r\n          \"FF\",\r\n          \"FALSE\",\r\n          \"3\",\r\n          \"L\",\r\n          \""+Players.SelectedItem.Value+"\"\r\n        ]\r\n      ]\r\n    }\r\n  },\r\n  \"GlobalParameters\": {}\r\n}", ParameterType.RequestBody);
+            IRestResponse response = client.Execute(request);
+            Results.Text = response.Content.ToString();
+        }
     }
 }

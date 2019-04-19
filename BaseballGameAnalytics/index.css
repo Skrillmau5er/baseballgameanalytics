@@ -1,4 +1,5 @@
 ﻿body {
+    font-family: 'Rubik', sans-serif;
 }
 
 .center{
@@ -80,7 +81,12 @@ select{
     text-align:center;
 }
 
-#dashboardContainer {
-    padding-left: 5%;
-    padding-right: 5%;
+.addForm{
+    margin: 0 auto;
+}
+
+input.form-control{
+    width: 250px;
+    margin: 0 auto;
+    text-align: center;
 }
