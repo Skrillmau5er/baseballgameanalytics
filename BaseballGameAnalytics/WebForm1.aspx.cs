@@ -42,6 +42,25 @@ namespace BaseballGameAnalytics
 
         protected void addData_Click(object sender, EventArgs e)
         {
+            var pitches = new Dictionary<string, string>
+            {
+                {"CH","Changeup"},
+                {"CU","Curveball"},
+                {"EP","Eephus"},
+                {"FC","Cutter"},
+                {"FF","Four-seam Fastball"},
+                {"FO","Pitchout"},
+                {"FS","Splitter"},
+                {"FT","Two-seam Fastball"},
+                {"IN","Intentional ball"},
+                {"KC","Knuckle curve"},
+                {"KN","Knuckeball"},
+                {"PO","Pitchout"},
+                {"SC","Screwball"},
+                {"SI","Sinker"},
+                {"SL","Slider"},
+            };
+
             string startS = startSpeed.Text.ToString();
             string endS = endSpeed.Text.ToString();
             string spin = spinRate.Text.ToString();
@@ -49,9 +68,16 @@ namespace BaseballGameAnalytics
 
             SqlConnection connection = new SqlConnection("Server=tcp:is415bestserver.database.windows.net,1433;Initial Catalog=BaseballAnalytics;Persist Security Info=False;User ID=bestserver;Password=c@ntfigureitout415;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             connection.Open();
-            SqlCommand cmd = new SqlCommand("SELECT DISTINCT id, first_name, last_name FROM player_names PN INNER JOIN atbats AB ON PN.id = AB.pitcher_id ORDER BY PN.first_name", connection);
-            
-            connection.Close();
+            SqlCommand command;
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            String sql = "INSERT INTO million(start_speed,end_speed,spin_rate,pitch_type) VALUES(" + startS + "," + endS + "," + spin + ",'" + pitch + "')";
+
+            command = new SqlCommand(sql, connection);
+            adapter.InsertCommand = new SqlCommand(sql, connection);
+            adapter.InsertCommand.ExecuteNonQuery();
+
+            command.Dispose();
+		    connection.Close();
         }
     }
 }
