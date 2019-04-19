@@ -55,8 +55,8 @@
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="Images/pitcher.jpg" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">Pitcher Predictions</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <h5 class="card-title">Pitch Predictions</h5>
+                    <p class="card-text">What pitch will a pitcher throw next</p>
                     <a href="pitcher.aspx" class="btn btn-danger">Lets Go!</a>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                 <img class="card-img-top" src="Images/batter.jpg" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Batter Predictions</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="card-text">What outcomes will a certain pitch have against a batter</p>
                     <a href="batter.aspx" class="btn btn-danger">Take Me There!</a>
                 </div>
             </div>
