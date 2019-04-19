@@ -16,6 +16,13 @@
     animation: rotation 5s infinite ease-in-out;
 }
 
+.dashboard {
+    width: 90%;
+    display: block;
+    margin: auto;
+}
+
+
 @keyframes rotation {
     0%{ transform: rotate(0deg); }
 
