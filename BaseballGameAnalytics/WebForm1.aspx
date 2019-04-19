@@ -24,7 +24,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="#">Baseball Analytics</a>
                 </li>
                 <li class="nav-item">
@@ -40,27 +40,28 @@
         </div>
     </nav>
      <div class="jumbotron" style="text-align: center;"><h1>Add a pitch</h1></div>
-    <div class="row">
-        <div class="col-lg-6 addForm">
+        
         <form id="form1" runat="server">
-
-            <asp:Label ID="Label1" runat="server" Text="Start Speed: "></asp:Label><asp:TextBox ID="startSpeed" runat="server" CssClass="form-control"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="startSpeed" runat="server" ErrorMessage="Please enter a number"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="startSpeed" ErrorMessage="Please enter a positive number" ValidationExpression="^[0-9][0-9]*$"></asp:RegularExpressionValidator>
+            <div class="row">
+                <div class="col-lg-6 addForm">
+                    <asp:Label ID="Label1" runat="server" Text="Start Speed: "></asp:Label><asp:TextBox ID="startSpeed" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:RequiredFieldValidator Forecolor="Red" ID="RequiredFieldValidator1" ControlToValidate="startSpeed" runat="server" ErrorMessage="Please enter a number"></asp:RequiredFieldValidator><br />
+                    <asp:RegularExpressionValidator Forecolor="Red" ID="RegularExpressionValidator1" runat="server" ControlToValidate="startSpeed" ErrorMessage="Please enter a positive number" ValidationExpression="^[0-9][0-9]*$"></asp:RegularExpressionValidator><br />
             
-            <asp:Label ID="Label2" runat="server" Text="End Speed: "></asp:Label><asp:TextBox ID="endSpeed" runat="server" CssClass="form-control"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="endSpeed" runat="server" ErrorMessage="Please enter a number"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="endSpeed" ErrorMessage="Please enter a positive number" ValidationExpression="^[0-9][0-9]*$"></asp:RegularExpressionValidator>
+                    <asp:Label ID="Label2" runat="server" Text="End Speed: "></asp:Label><asp:TextBox ID="endSpeed" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:RequiredFieldValidator Forecolor="Red" ID="RequiredFieldValidator2" ControlToValidate="endSpeed" runat="server" ErrorMessage="Please enter a number"></asp:RequiredFieldValidator><br />
+                    <asp:RegularExpressionValidator Forecolor="Red" ID="RegularExpressionValidator2" runat="server" ControlToValidate="endSpeed" ErrorMessage="Please enter a positive number" ValidationExpression="^[0-9][0-9]*$"></asp:RegularExpressionValidator><br />
+                </div>
+                <div class="col-lg-6">
+                    <asp:Label ID="Label3" runat="server" Text="Spin Rate: "></asp:Label><asp:TextBox ID="spinRate" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:RequiredFieldValidator Forecolor="Red" ID="RequiredFieldValidator3" ControlToValidate="spinRate" runat="server" ErrorMessage="Please enter a number"></asp:RequiredFieldValidator><br />
+                    <asp:RegularExpressionValidator Forecolor="Red" ID="RegularExpressionValidator3" runat="server" ControlToValidate="spinRate" ErrorMessage="Please enter a positive number" ValidationExpression="^[0-9][0-9]*$"></asp:RegularExpressionValidator><br />
 
-            <asp:Label ID="Label3" runat="server" Text="Spin Rate: "></asp:Label><asp:TextBox ID="spinRate" runat="server" CssClass="form-control"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="spinRate" runat="server" ErrorMessage="Please enter a number"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="spinRate" ErrorMessage="Please enter a positive number" ValidationExpression="^[0-9][0-9]*$"></asp:RegularExpressionValidator>
-
-            <asp:Label ID="Label4" runat="server" Text="Pitch Type: "></asp:Label><asp:DropDownList ID="pitchType" runat="server" CssClass="form-control"></asp:DropDownList>
-            
-            <asp:Button ID="addData" runat="server" Text="Add Pitch!" CssClass="btn" />
+                    <asp:Label ID="Label4" runat="server" Text="Pitch Type: "></asp:Label><asp:DropDownList ID="pitchType" runat="server" CssClass="form-control"></asp:DropDownList>
+                    <asp:RequiredFieldValidator Forecolor="Red" ID="RequiredFieldValidator4" ControlToValidate="pitchType" runat="server" ErrorMessage="Please select a pitch Type"></asp:RequiredFieldValidator><br />
+                </div>
+                <asp:Button ID="addData" runat="server" Text="Add Pitch!" style="margin:0 auto;" CssClass="btn" OnClick="addData_Click" />
+            </div>
         </form>
-        </div>
-    </div>
 </body>
 </html>
