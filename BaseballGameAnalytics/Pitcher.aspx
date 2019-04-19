@@ -41,16 +41,38 @@
         </div>
     </nav>
     <div class="jumbotron" style="text-align: center;"><h1>Pitch Predicter</h1></div>
-    <form id="form1" runat="server">
-        <div class="col-lg-6">
-            <asp:DropDownList ID="Players" runat="server" CssClass="form-control"></asp:DropDownList>
-            <asp:Button ID="pitcherButton" class="btn" runat="server" Text="Run Prediction" OnClick="pitcherButton_Click" />
+    <div style="height: 700px;">
+        <form id="form1" runat="server">
+        <div>
+            <div class="form-container-left">
+                <label for="Players">Player</label>
+                <asp:DropDownList ID="Players" runat="server" CssClass="form-control"></asp:DropDownList>
+                <label for="PitchType">Pitch Type 1</label>
+                <asp:DropDownList ID="Prev1" runat="server" CssClass="form-control"></asp:DropDownList>
+                <label for="PitchType">Pitch Type 2</label>
+                <asp:DropDownList ID="Prev2" runat="server" CssClass="form-control"></asp:DropDownList>
+                <label for="PitchType">Pitch Type 3</label>
+                <asp:DropDownList ID="Prev3" runat="server" CssClass="form-control"></asp:DropDownList>
+                <label for="PitchType">Pitch Type 4</label>
+                <asp:DropDownList ID="Prev4" runat="server" CssClass="form-control"></asp:DropDownList>
+                <label for="PitchType">Pitch Type 5</label>
+                <asp:DropDownList ID="Prev5" runat="server" CssClass="form-control"></asp:DropDownList>
+            </div>
+            <div class="form-container-right">
+                <label for="Balls">Ball Count</label>
+                <asp:TextBox ID="Balls" runat="server" CssClass="form-control"></asp:TextBox>
+                <label for="Strikes">Strike Count</label>
+                <asp:TextBox ID="Strikes" runat="server" CssClass="form-control"></asp:TextBox>
+                <label for="PitchHand">Player Pitching Hand</label>
+                <asp:DropDownList ID="PitchHand" runat="server" CssClass="form-control"></asp:DropDownList>
+                <label for="Inning">Inning</label>
+                <asp:TextBox ID="Inning" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
         </div>
-    </form>
-    <asp:Label ID="Results" runat="server" Text=""></asp:Label>
-    <div class='tableauPlaceholder' id='viz1555629925594' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Cl&#47;ClintBaseball&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='ClintBaseball&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Cl&#47;ClintBaseball&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1555629925594');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-
+        <asp:Button ID="pitcherButton" class="btn" runat="server" Text="Run Prediction" OnClick="pitcherButton_Click" />
+        </form>
+        <div id="Results" runat="server" class="resultsContainer"></div>
+    </div>
     <TWebControl:WebControl runat="server" />
-
 </body>
 </html>

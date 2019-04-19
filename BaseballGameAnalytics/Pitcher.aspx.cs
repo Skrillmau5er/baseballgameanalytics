@@ -12,6 +12,26 @@ namespace BaseballGameAnalytics
 {
     public partial class Pitcher : System.Web.UI.Page
     {
+        static Dictionary<String, String> pitches = new Dictionary<String, String>
+            {
+                {"CH","Changeup"},
+                {"CU","Curveball"},
+                {"EP","Eephus"},
+                {"FC","Cutter"},
+                {"FF","Four-seam Fastball"},
+                {"FO","Pitchout"},
+                {"FS","Splitter"},
+                {"FT","Two-seam Fastball"},
+                {"IN","Intentional ball"},
+                {"KC","Knuckle curve"},
+                {"KN","Knuckeball"},
+                {"PO","Pitchout"},
+                {"SC","Screwball"},
+                {"SI","Sinker"},
+                {"SL","Slider"},
+                {"FALSE", "Not Applicable"}
+            };
+
         protected void Page_Load(object sender, EventArgs e)
         {
             ListItem li = null;
@@ -30,6 +50,19 @@ namespace BaseballGameAnalytics
             reader.Close();
             Players.DataBind();
             connection.Close();
+
+            foreach (KeyValuePair<String, String> pair in pitches)
+            {
+                li = new ListItem((pair.Value), pair.Key);
+                Prev1.Items.Add(li);
+                Prev2.Items.Add(li);
+                Prev3.Items.Add(li);
+                Prev4.Items.Add(li);
+                Prev5.Items.Add(li);
+            }
+
+            PitchHand.Items.Add(new ListItem(("Left Handed"), "L"));
+            PitchHand.Items.Add(new ListItem(("Right Handed"), "R"));
         }
 
         protected void pitcherButton_Click(object sender, EventArgs e)
@@ -40,9 +73,32 @@ namespace BaseballGameAnalytics
             request.AddHeader("cache-control", "no-cache");
             request.AddHeader("Content-Type", "application/json");
             request.AddHeader("Authorization", "Bearer 0ij/DD0eVoXw4yJcy6Wma02uvJNAyAbJkVFIOrzkoI3v6evdVnB8h6iVqc5HK/fvJohX/6w2jgIb5xQs5L8r0g==");
-            request.AddParameter("undefined", "{\r\n  \"Inputs\": {\r\n    \"input1\": {\r\n      \"ColumnNames\": [\r\n        \"b_count\",\r\n        \"s_count\",\r\n        \"prev1\",\r\n        \"prev2\",\r\n        \"prev3\",\r\n        \"prev4\",\r\n        \"prev5\",\r\n        \"inning\",\r\n        \"p_throws\",\r\n        \"pitcher_id\"\r\n      ],\r\n      \"Values\": [\r\n        [\r\n          \"1\",\r\n          \"2\",\r\n          \"FF\",\r\n          \"FF\",\r\n          \"FF\",\r\n          \"FF\",\r\n          \"FALSE\",\r\n          \"3\",\r\n          \"L\",\r\n          \""+Players.SelectedItem.Value+"\"\r\n        ]\r\n      ]\r\n    }\r\n  },\r\n  \"GlobalParameters\": {}\r\n}", ParameterType.RequestBody);
+            request.AddParameter("undefined", "{\r\n  \"Inputs\": {\r\n    \"input1\": {\r\n      \"ColumnNames\": [\r\n        \"b_count\",\r\n        \"s_count\",\r\n        \"prev1\",\r\n        \"prev2\",\r\n        \"prev3\",\r\n        \"prev4\",\r\n        \"prev5\",\r\n        \"inning\",\r\n        \"p_throws\",\r\n        \"pitcher_id\"\r\n      ],\r\n      \"Values\": [\r\n        [\r\n          \"" + Balls.Text + "\",\r\n          \"" + Strikes.Text + "\",\r\n          \"" + Prev1.SelectedValue + "\",\r\n          \"" + Prev2.SelectedValue + "\",\r\n          \"" + Prev3.SelectedValue + "\",\r\n          \"" + Prev4.SelectedValue + "\",\r\n          \"" + Prev5.SelectedValue + "\",\r\n          \"" + Inning.Text + "\",\r\n          \"" + PitchHand.SelectedValue + "\",\r\n          \"" + Players.SelectedItem.Value + "\"\r\n        ]\r\n      ]\r\n    }\r\n  },\r\n  \"GlobalParameters\": {}\r\n}", ParameterType.RequestBody);
             IRestResponse response = client.Execute(request);
-            Results.Text = response.Content.ToString();
+            
+            var resultObject = JObject.Parse(response.Content.ToString());
+            List<Pair> resultList = new List<Pair>();
+            int size = resultObject["Results"]["output1"]["value"]["ColumnNames"].Count();
+            for (int i = 1; i < size; i++)
+            {
+                String column = resultObject["Results"]["output1"]["value"]["ColumnNames"][i].ToString();
+                String pitchType = column.Substring(column.Length - 3, 2);
+
+                String probability = resultObject["Results"]["output1"]["value"]["Values"][0][i].ToString();
+
+                if (pitches.ContainsKey(pitchType))
+                {
+                    String pitchTypeFull = pitches[pitchType];
+                    double value = Convert.ToDouble(probability);
+                    Pair pair = new Pair(pitchTypeFull, Math.Round(value, 2));
+                    resultList.Add(pair);
+                }
+            }
+            Results.InnerHtml = "";
+            foreach (Pair pair in resultList)
+            {
+                Results.InnerHtml += "<p>" + pair.First + ": " + pair.Second + "%</p>";
+            }
         }
     }
 }
