@@ -33,14 +33,19 @@
     }
 
         function addValuesToFilter(element) {
+            if (element) {
+                document.getElementById('pitchBreakDown').innerHTML = "Pitch Breakdown for " + element.options[element.selectedIndex].text;
+            }
+            else {
+                document.getElementById('pitchBreakDown').innerHTML = "Pitch Breakdown for A.J. Burnett";
+            }
             var e = document.getElementById("Players");
             var pid = e.value
 
             activesheet.applyFilterAsync(
             "Pitcher Id",
             pid,
-            tableau.FilterUpdateType.REPLACE);
-            document.getElementById('pitchBreakDown').innerHTML = "Pitch Breakdown for " + element.options[element.selectedIndex].text;
+                tableau.FilterUpdateType.REPLACE);
         }  
 
     </script>
@@ -77,7 +82,7 @@
         </div>
     </nav>
      <!--Johnnys Section -->
-    <div class="jumbotron" style="text-align: center;"><h1>Pitch Predicter</h1></div>
+    <div class="jumbotron" style="text-align: center;"><h1>Pitch Predicter</h1><br /> <h4><a id="addPitch" class="btn btn-primary" href="WebForm1.aspx">Add Pitch</a></h4></div>
         <form id="form2" runat="server">
             <div class="row">
                 <div class="col-lg-2"></div>
@@ -130,9 +135,9 @@
                 <asp:Button ID="Button1" class="btn" runat="server" style="margin: 0 auto;" Text="Predict!" OnClick="pitcherButton_Click" />
             </div>
         </form>
-    <h3 id="pitchBreakDown" class="center" style="margin-top: 40px;"></h3>
         <div id="Results" runat="server"></div>
        
+        <h3 id="pitchBreakDown" class="center" style="margin-top: 40px;"></h3>
         <script>initViz(); addValuesToFilter();</script>
 
         <footer class="page-footer">

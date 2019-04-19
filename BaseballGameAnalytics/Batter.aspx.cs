@@ -52,7 +52,7 @@ namespace BaseballGameAnalytics
             strikes.InnerHtml = "Strike: " + Math.Round(Convert.ToDecimal(strike) * 100,2) + "%";
             fouls.InnerHtml = "Foul: " + Math.Round(Convert.ToDecimal(foul) * 100,2) + "%";
             hits.InnerHtml = "Hit: " + Math.Round(Convert.ToDecimal(hit) * 100,2) + "%";
-            resultHeader.InnerHtml = "Chances of Occurance";
+            resultHeader.InnerHtml = "Results";
             
         }
 

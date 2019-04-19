@@ -29,7 +29,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="tableau.html">Tableau</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="Pitcher.aspx">Pitcher</a>
                 </li>
                 <li class="nav-item">
@@ -42,26 +42,29 @@
         
         <form id="form1" runat="server">
             <div class="row">
-                <div class="col-lg-6 addForm">
-                    <asp:Label ID="Label1" runat="server" Text="Start Speed: "></asp:Label><asp:TextBox ID="startSpeed" runat="server" CssClass="form-control"></asp:TextBox>
+                <div class="col-lg-2"></div>
+                <div class="col-lg-4 center">
+                    <asp:Label ID="Label1" runat="server" Text="Start Speed: "></asp:Label><asp:TextBox ID="startSpeed" runat="server" CssClass="form-control zeroauto"></asp:TextBox>
                     <asp:RequiredFieldValidator Forecolor="Red" ID="RequiredFieldValidator1" ControlToValidate="startSpeed" runat="server" ErrorMessage="Please enter a number"></asp:RequiredFieldValidator><br />
                     <asp:RegularExpressionValidator Forecolor="Red" ID="RegularExpressionValidator1" runat="server" ControlToValidate="startSpeed" ErrorMessage="Please enter a positive number" ValidationExpression="^[0-9][0-9]*$"></asp:RegularExpressionValidator><br />
             
-                    <asp:Label ID="Label2" runat="server" Text="End Speed: "></asp:Label><asp:TextBox ID="endSpeed" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:Label ID="Label2" runat="server" Text="End Speed: "></asp:Label><asp:TextBox ID="endSpeed" runat="server" CssClass="form-control zeroauto"></asp:TextBox>
                                 <asp:RequiredFieldValidator Forecolor="Red" ID="RequiredFieldValidator2" ControlToValidate="endSpeed" runat="server" ErrorMessage="Please enter a number"></asp:RequiredFieldValidator><br />
                     <asp:RegularExpressionValidator Forecolor="Red" ID="RegularExpressionValidator2" runat="server" ControlToValidate="endSpeed" ErrorMessage="Please enter a positive number" ValidationExpression="^[0-9][0-9]*$"></asp:RegularExpressionValidator><br />
                 </div>
-                <div class="col-lg-6">
-                    <asp:Label ID="Label3" runat="server" Text="Spin Rate: "></asp:Label><asp:TextBox ID="spinRate" runat="server" CssClass="form-control"></asp:TextBox>
+                <div class="col-lg-4 center">
+                    <asp:Label ID="Label3" runat="server" Text="Spin Rate: "></asp:Label><asp:TextBox ID="spinRate" runat="server" CssClass="form-control zeroauto"></asp:TextBox>
                     <asp:RequiredFieldValidator Forecolor="Red" ID="RequiredFieldValidator3" ControlToValidate="spinRate" runat="server" ErrorMessage="Please enter a number"></asp:RequiredFieldValidator><br />
                     <asp:RegularExpressionValidator Forecolor="Red" ID="RegularExpressionValidator3" runat="server" ControlToValidate="spinRate" ErrorMessage="Please enter a positive number" ValidationExpression="^[0-9][0-9]*$"></asp:RegularExpressionValidator><br />
 
-                    <asp:Label ID="Label4" runat="server" Text="Pitch Type: "></asp:Label><asp:DropDownList ID="pitchType" runat="server" CssClass="form-control"></asp:DropDownList>
+                    <asp:Label ID="Label4" runat="server" Text="Pitch Type: "></asp:Label><asp:DropDownList ID="pitchType" runat="server" CssClass="form-control zeroauto"></asp:DropDownList>
                     <asp:RequiredFieldValidator Forecolor="Red" ID="RequiredFieldValidator4" ControlToValidate="pitchType" runat="server" ErrorMessage="Please select a pitch Type"></asp:RequiredFieldValidator><br />
                 </div>
+                <div class="col-lg-2"></div>
                 <asp:Button ID="addData" runat="server" Text="Add Pitch!" style="margin:0 auto;" CssClass="btn" OnClick="addData_Click" />
             </div>
         </form>
+    <h3 class="center" id="success" runat="server"></h3>
         <footer class="page-footer">
         <div class="footer-copyright text-center py-3">© <%Response.Write(DateTime.Now.Year.ToString()); %> Copyright:
             <a href="https://skrillmau5er.com/">Skrillmau5er</a>

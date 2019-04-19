@@ -94,10 +94,10 @@ namespace BaseballGameAnalytics
                     resultList.Add(pair);
                 }
             }
-            Results.InnerHtml = "";
+            Results.InnerHtml = "<h2 class=\"center\" style=\"margin-top: 20px;\"> Results </h2>";
             foreach (Pair pair in resultList)
             {
-                Results.InnerHtml += "<p>" + pair.First + ": " + pair.Second + "%</p>";
+                Results.InnerHtml += "<h5 class=\"center\">" + pair.First + ": " + pair.Second + "%</h5>";
             }
         }
     }

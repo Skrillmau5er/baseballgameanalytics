@@ -63,21 +63,14 @@
                 <asp:Button ID="addPitch" runat="server" Text="Predict!" style="margin:0 auto;" CssClass="btn" OnClick="addPitch_Click"/>
         </div>
     </form>
-    <h1 id="resultHeader" runat="server">Chances of Occurance</h1>
-    <div class="row">
-        <div class="col-md-3">
-            <h2 id="balls" runat="server"></h2>
-        </div>
-        <div class="col-md-3">
-            <h2 id="strikes" runat="server"></h2>
-        </div>
-        <div class="col-md-3">
-            <h2 id="fouls" runat="server"></h2>
-        </div>
-        <div class="col-md-3">
-            <h2 id="hits" runat="server"></h2>
-        </div>
-    </div>
+    
+
+    <h1 id="resultHeader" class="center" style="margin-top: 20px;" runat="server"></h1>
+    <h2 id="balls" class="center" runat="server"></h2>
+    <h2 id="strikes" class="center" runat="server"></h2>
+    <h2 id="fouls" class="center" runat="server"></h2>
+    <h2 id="hits" class="center" runat="server"></h2>
+
        <footer class="page-footer">
         <div class="footer-copyright text-center py-3">© <%Response.Write(DateTime.Now.Year.ToString()); %> Copyright:
             <a href="https://skrillmau5er.com/">Skrillmau5er</a>
