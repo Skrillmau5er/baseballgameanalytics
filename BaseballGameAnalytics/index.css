@@ -79,3 +79,8 @@ select{
 .col-lg-6{
     text-align:center;
 }
+
+#dashboardContainer {
+    padding-left: 5%;
+    padding-right: 5%;
+}

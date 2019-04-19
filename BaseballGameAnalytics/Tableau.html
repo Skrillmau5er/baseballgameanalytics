@@ -4,12 +4,26 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.0.0.min.js"></script>
     <link rel="stylesheet" href="index.css" />
     <link rel="icon" href="Images/baseball.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baseball Analytics</title>
+    <script>
+        function initViz() {
+            var containerDiv = document.getElementById("vizContainer");
+            var url = "https://public.tableau.com/views/baseball-PitchResults/Dashboard1?:embed=y&:display_count=yes";
+            var options = {
+                width: 800,
+                height: 500,
+                hideTabs: true,
+                hideToolbar: true
+            };
+            var viz = new tableau.Viz(containerDiv, url, options);
+        }
+    </script>
 </head>
-<body>
+<body onload="initViz()">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="Index.aspx">
             <img src="Images/baseball.png" width="50" height="auto" class="d-inline-block align-top baseball-img" alt="">
@@ -35,7 +49,10 @@
         </div>
     </nav>
     <div class="jumbotron" style="text-align: center;"><h1>Tableau Data Vizualizations</h1></div>
-    <div class="row">
+    <div class="row" id="dashboardContainer">
+        <div id='vizContainer'>
+           
+        </div>
     </div>
     <footer class="page-footer">
         <div class="footer-copyright text-center py-3">

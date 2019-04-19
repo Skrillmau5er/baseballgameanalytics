@@ -29,13 +29,13 @@ namespace BaseballGameAnalytics
 
             }
             reader.Close();
-            Players.DataBind();
             connection.Close();
         }
 
         protected void batterButton_Click(object sender, EventArgs e)
         {
-
+            String value = Players.SelectedValue;
+            
         }
     }
 }
