@@ -31,5 +31,10 @@ namespace BaseballGameAnalytics
             Players.DataBind();
             connection.Close();
         }
+
+        protected void pitcherButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
