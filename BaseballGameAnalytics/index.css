@@ -16,6 +16,13 @@
     animation: rotation 5s infinite ease-in-out;
 }
 
+.dashboard {
+    width: 90%;
+    display: block;
+    margin: auto;
+}
+
+
 @keyframes rotation {
     0%{ transform: rotate(0deg); }
 
@@ -74,11 +81,27 @@ footer {
 select{
     margin: 0 auto;
     width: 250px !important;
-    margin-bottom: 20px;
 }
 
-.col-lg-6{
-    text-align:center;
+#form1 {
+    width: 60%;
+    height: 500px;
+    padding-left: 50px;
+    display: inline-block;
+}
+
+.form-container-left {
+    width: 50%;
+    height: 500px;
+    text-align: left;
+    float: left;
+}
+
+.form-container-right {
+    width: 50%;
+    height: 500px;
+    text-align: left;
+    float: left;
 }
 
 .addForm{
@@ -87,6 +110,17 @@ select{
 
 input.form-control{
     width: 250px;
-    margin: 0 auto;
+    margin-left: 0;
     text-align: center;
+}
+
+.form-control {
+    margin-left: 0;
+    margin-bottom: 10px;
+
+}
+
+.resultsContainer {
+    float: right;
+    width: 40%;
 }

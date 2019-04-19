@@ -29,7 +29,6 @@ namespace BaseballGameAnalytics
 
             }
             reader.Close();
-            Players.DataBind();
             connection.Close();
         }
 
@@ -54,8 +53,7 @@ namespace BaseballGameAnalytics
             fouls.InnerHtml = "Foul: " + Math.Round(Convert.ToDecimal(foul) * 100,2) + "%";
             hits.InnerHtml = "Hit: " + Math.Round(Convert.ToDecimal(hit) * 100,2) + "%";
             resultHeader.InnerHtml = "Chances of Occurance";
-
-
+            
         }
 
     }
