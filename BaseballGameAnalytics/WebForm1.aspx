@@ -64,7 +64,7 @@
                 <asp:Button ID="addData" runat="server" Text="Add Pitch!" style="margin:0 auto;" CssClass="btn" OnClick="addData_Click" />
             </div>
         </form>
-    <h3 class="center" id="success" runat="server"></h3>
+    <h2 class="center" id="success" runat="server"></h2>
         <footer class="page-footer">
         <div class="footer-copyright text-center py-3">© <%Response.Write(DateTime.Now.Year.ToString()); %> Copyright:
             <a href="https://skrillmau5er.com/">Skrillmau5er</a>

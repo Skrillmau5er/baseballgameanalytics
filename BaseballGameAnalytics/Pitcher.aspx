@@ -138,6 +138,7 @@
         <div id="Results" runat="server"></div>
        
         <h3 id="pitchBreakDown" class="center" style="margin-top: 40px;"></h3>
+        <div class="center">(Select a pitcher from the dropdown and this will update automatically)</div>
         <script>initViz(); addValuesToFilter();</script>
 
         <footer class="page-footer">
