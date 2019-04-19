@@ -89,7 +89,7 @@ namespace BaseballGameAnalytics
                 if (pitches.ContainsKey(pitchType))
                 {
                     String pitchTypeFull = pitches[pitchType];
-                    double value = Convert.ToDouble(probability);
+                    double value = (Convert.ToDouble(probability) * 100);
                     Pair pair = new Pair(pitchTypeFull, Math.Round(value, 2));
                     resultList.Add(pair);
                 }

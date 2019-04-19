@@ -2,11 +2,6 @@
     font-family: 'Rubik', sans-serif;
 }
 
-.center{
-    text-align: center;
-    color: blue;
-}
-
 .navbar {
     border-bottom: #d3d3d3 1px solid;
 }
@@ -83,44 +78,20 @@ select{
     width: 250px !important;
 }
 
-#form1 {
-    width: 60%;
-    height: 500px;
-    padding-left: 50px;
-    display: inline-block;
-}
-
-.form-container-left {
-    width: 50%;
-    height: 500px;
-    text-align: left;
-    float: left;
-}
-
-.form-container-right {
-    width: 50%;
-    height: 500px;
-    text-align: left;
-    float: left;
-}
-
-.addForm{
+.zeroauto{
     margin: 0 auto;
+}
+
+.center{
+    text-align:center;
 }
 
 input.form-control{
     width: 250px;
-    margin-left: 0;
     text-align: center;
 }
 
-.form-control {
-    margin-left: 0;
-    margin-bottom: 10px;
-
-}
-
-.resultsContainer {
-    float: right;
-    width: 40%;
+iframe{
+    margin: 0 auto;
+    margin-top: 20px;
 }

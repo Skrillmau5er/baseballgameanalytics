@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="BaseballGameAnalytics.WebForm1" %>
-<%@ Register Src="~/WebUserControl1.ascx" TagName="WebControl" TagPrefix="TWebControl" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -63,5 +62,10 @@
                 <asp:Button ID="addData" runat="server" Text="Add Pitch!" style="margin:0 auto;" CssClass="btn" OnClick="addData_Click" />
             </div>
         </form>
+        <footer class="page-footer">
+        <div class="footer-copyright text-center py-3">© <%Response.Write(DateTime.Now.Year.ToString()); %> Copyright:
+            <a href="https://skrillmau5er.com/">Skrillmau5er</a>
+        </div>
+    </footer>
 </body>
 </html>

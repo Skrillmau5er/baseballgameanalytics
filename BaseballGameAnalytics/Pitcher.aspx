@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Pitcher.aspx.cs" Inherits="BaseballGameAnalytics.Pitcher" %>
-<%@ Register Src="~/WebUserControl1.ascx" TagName="WebControl" TagPrefix="TWebControl" %>
 
 <!DOCTYPE html>
 
@@ -20,33 +19,30 @@
         containerDiv = document.getElementById("vizContainer"),
         url = "https://public.tableau.com/views/ClintBaseball/Pitching?:embed=y&:display_count=yes&publish=yes";
         var options = {
-        width: 800,
-        height: 800,
-        hideTabs: true,
-        hideToolbar: true,
-        onFirstInteractive: function () {
-          workbook = viz.getWorkbook();
-            activesheet = workbook.getActiveSheet();
-            console.log(activesheet)
-        }
+            width: 800,
+            height: 800,
+            hideTabs: true,
+            hideToolbar: true,
+            onFirstInteractive: function () {
+              workbook = viz.getWorkbook();
+                activesheet = workbook.getActiveSheet();
+                console.log(activesheet)
+            }
         };
         viz = new tableau.Viz(containerDiv, url, options);
     }
 
-        function addValuesToFilter() {
+        function addValuesToFilter(element) {
             var e = document.getElementById("Players");
             var pid = e.value
-        activesheet.applyFilterAsync(
-        "Pitcher Id",
-        pid,
-        tableau.FilterUpdateType.REPLACE);
-}  
-        var e = document.getElementById("Players");
-            var pid = e.value
-        activesheet.applyFilterAsync(
-        "Pitcher Id",
-        pid,
-        tableau.FilterUpdateType.REPLACE);
+
+            activesheet.applyFilterAsync(
+            "Pitcher Id",
+            pid,
+            tableau.FilterUpdateType.REPLACE);
+            document.getElementById('pitchBreakDown').innerHTML = "Pitch Breakdown for " + element.options[element.selectedIndex].text;
+        }  
+
     </script>
     <link rel="stylesheet" href="index.css" />
     <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
@@ -55,7 +51,7 @@
     <title>Baseball Analytics</title>
 
 </head>
-<body onload="initViz();">
+<body>
      <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="Index.aspx">
             <img src="Images/baseball.png" width="50" height="auto" class="d-inline-block align-top baseball-img" alt="">
@@ -80,17 +76,69 @@
             </ul>
         </div>
     </nav>
+     <!--Johnnys Section -->
     <div class="jumbotron" style="text-align: center;"><h1>Pitch Predicter</h1></div>
-    <form id="form1" runat="server">
-        <div class="col-lg-6">
-            <asp:DropDownList ID="Players" runat="server" CssClass="form-control"></asp:DropDownList>
-            <asp:Button ID="pitcherButton" class="btn" runat="server" Text="Run Prediction" OnClick="pitcherButton_Click" />
+        <form id="form2" runat="server">
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-4 center">
+                    <label for="Players">Player</label>
+                    <asp:DropDownList ID="Players" runat="server" CssClass="form-control zeroauto" onchange="addValuesToFilter(this);"></asp:DropDownList>
+                    <asp:RequiredFieldValidator Forecolor="Red" ID="RequiredFieldValidator1" ControlToValidate="Players" runat="server" ErrorMessage="Please choose a player"></asp:RequiredFieldValidator><br />
+                    
+                    <label for="Balls">Ball Count</label>
+                    <asp:TextBox ID="Balls" runat="server" CssClass="form-control zeroauto"></asp:TextBox>
+                    <asp:RequiredFieldValidator Forecolor="Red" ID="RequiredFieldValidator2" ControlToValidate="Balls" runat="server" ErrorMessage="Please enter a number"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator Forecolor="Red" ID="RegularExpressionValidator2" runat="server" ControlToValidate="Balls" ErrorMessage="Please enter a positive number" ValidationExpression="^[0-9][0-9]*$"></asp:RegularExpressionValidator><br />
+                    
+                    <label for="Strikes">Strike Count</label>
+                    <asp:TextBox ID="Strikes" runat="server" CssClass="form-control zeroauto"></asp:TextBox>
+                    <asp:RequiredFieldValidator Forecolor="Red" ID="RequiredFieldValidator3" ControlToValidate="Strikes" runat="server" ErrorMessage="Please enter a number"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator Forecolor="Red" ID="RegularExpressionValidator3" runat="server" ControlToValidate="Strikes" ErrorMessage="Please enter a positive number" ValidationExpression="^[0-9][0-9]*$"></asp:RegularExpressionValidator><br />
+                    
+                    <label for="PitchHand">Player Pitching Hand</label>
+                    <asp:DropDownList ID="PitchHand" runat="server" CssClass="form-control zeroauto"></asp:DropDownList>
+                    <asp:RequiredFieldValidator Forecolor="Red" ID="RequiredFieldValidator4" ControlToValidate="PitchHand" runat="server" ErrorMessage="Please select a value"></asp:RequiredFieldValidator><br />
+                   
+                    <label for="Inning">Inning</label>
+                    <asp:TextBox ID="Inning" runat="server" CssClass="form-control zeroauto"></asp:TextBox>
+                    <asp:RequiredFieldValidator Forecolor="Red" ID="RequiredFieldValidator5" ControlToValidate="Inning" runat="server" ErrorMessage="Please enter a number"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator Forecolor="Red" ID="RegularExpressionValidator5" runat="server" ControlToValidate="Inning" ErrorMessage="Please enter a positive number" ValidationExpression="^[0-9][0-9]*$"></asp:RegularExpressionValidator><br />
+                </div>
+                <div class="col-lg-4 center">
+                    <label for="PitchType">Previous Pitch Type 1</label>
+                    <asp:DropDownList ID="Prev1" runat="server" CssClass="form-control zeroauto"></asp:DropDownList>
+                    <asp:RequiredFieldValidator Forecolor="Red" ID="RequiredFieldValidator6" ControlToValidate="Prev1" runat="server" ErrorMessage="Please select a value"></asp:RequiredFieldValidator><br />
+                  
+                    <label for="PitchType">Previous Pitch Type 2</label>
+                    <asp:DropDownList ID="Prev2" runat="server" CssClass="form-control zeroauto"></asp:DropDownList>
+                    <asp:RequiredFieldValidator Forecolor="Red" ID="RequiredFieldValidator7" ControlToValidate="Prev2" runat="server" ErrorMessage="Please select a value"></asp:RequiredFieldValidator><br />
+                  
+                    <label for="PitchType">Previous Pitch Type 3</label>
+                    <asp:DropDownList ID="Prev3" runat="server" CssClass="form-control zeroauto"></asp:DropDownList>
+                    <asp:RequiredFieldValidator Forecolor="Red" ID="RequiredFieldValidator8" ControlToValidate="Prev3" runat="server" ErrorMessage="Please select a value"></asp:RequiredFieldValidator><br />
+                   
+                    <label for="PitchType">Previous Pitch Type 4</label>
+                    <asp:DropDownList ID="Prev4" runat="server" CssClass="form-control zeroauto"></asp:DropDownList>
+                    <asp:RequiredFieldValidator Forecolor="Red" ID="RequiredFieldValidator9" ControlToValidate="Prev4" runat="server" ErrorMessage="Please select a value"></asp:RequiredFieldValidator><br />
+                   
+                    <label for="PitchType">Previous Pitch Type 5</label>
+                    <asp:DropDownList ID="Prev5" runat="server" CssClass="form-control zeroauto"></asp:DropDownList>
+                    <asp:RequiredFieldValidator Forecolor="Red" ID="RequiredFieldValidator10" ControlToValidate="Prev5" runat="server" ErrorMessage="Please select a value"></asp:RequiredFieldValidator><br />
+                </div>
+                <div class="col-lg-2"></div>
+                <asp:Button ID="Button1" class="btn" runat="server" style="margin: 0 auto;" Text="Predict!" OnClick="pitcherButton_Click" />
+            </div>
+        </form>
+    <h3 id="pitchBreakDown" class="center" style="margin-top: 40px;"></h3>
+        <div id="Results" runat="server"></div>
+       
+        <script>initViz(); addValuesToFilter();</script>
+
+        <footer class="page-footer">
+        <div class="footer-copyright text-center py-3">© <%Response.Write(DateTime.Now.Year.ToString()); %> Copyright:
+            <a href="https://skrillmau5er.com/">Skrillmau5er</a>
         </div>
-    </form>
-    <asp:Label ID="Results" runat="server" Text=""></asp:Label>
-        <input type="button" value="Filter" onclick="addValuesToFilter();">
-
-    <TWebControl:WebControl runat="server" />
-
+    </footer>
 </body>
 </html>
