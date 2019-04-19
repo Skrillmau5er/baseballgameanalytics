@@ -41,12 +41,43 @@
     </nav>
     <div class="jumbotron" style="text-align: center;"><h1>Batter Predicter</h1></div>
     <form id="form1" runat="server">
-        <div class="col-lg-6">
-            <asp:DropDownList ID="Players" runat="server" CssClass="form-control"></asp:DropDownList>
-            <asp:Button ID="batterButton" class="btn" runat="server" Text="Run Prediction" OnClick="batterButton_Click" />
-            <div id="results" runat="server"></div>
+        <div class="row">
+                <div class="col-lg-6 addForm">
+                    <asp:Label ID="Label1" runat="server" Text="Ball Number: "></asp:Label><asp:TextBox ID="ballNumber" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:RequiredFieldValidator Forecolor="Red" ID="RequiredFieldValidator1" ControlToValidate="ballNumber" runat="server" ErrorMessage="Please enter a number"></asp:RequiredFieldValidator><br />
+                    <asp:RegularExpressionValidator Forecolor="Red" ID="RegularExpressionValidator1" runat="server" ControlToValidate="ballNumber" ErrorMessage="Please enter a positive number" ValidationExpression="^[0-9][0-9]*$"></asp:RegularExpressionValidator><br />
+            
+                    <asp:Label ID="Label2" runat="server" Text="Strike Number: "></asp:Label><asp:TextBox ID="strikeNumber" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:RequiredFieldValidator Forecolor="Red" ID="RequiredFieldValidator2" ControlToValidate="strikeNumber" runat="server" ErrorMessage="Please enter a number"></asp:RequiredFieldValidator><br />
+                    <asp:RegularExpressionValidator Forecolor="Red" ID="RegularExpressionValidator2" runat="server" ControlToValidate="strikeNumber" ErrorMessage="Please enter a positive number" ValidationExpression="^[0-9][0-9]*$"></asp:RegularExpressionValidator><br />
+                </div>
+                <div class="col-lg-6">
+                    <asp:Label ID="Label3" runat="server" Text="Pitch Number: "></asp:Label><asp:TextBox ID="pitchNumber" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:RequiredFieldValidator Forecolor="Red" ID="RequiredFieldValidator3" ControlToValidate="pitchNumber" runat="server" ErrorMessage="Please enter a number"></asp:RequiredFieldValidator><br />
+                    <asp:RegularExpressionValidator Forecolor="Red" ID="RegularExpressionValidator3" runat="server" ControlToValidate="pitchNumber" ErrorMessage="Please enter a positive number" ValidationExpression="^[0-9][0-9]*$"></asp:RegularExpressionValidator><br />
+
+                    <asp:Label ID="Label4" runat="server" Text="Select Player: "></asp:Label><asp:DropDownList ID="Players" runat="server" CssClass="form-control"></asp:DropDownList>
+                    <asp:RequiredFieldValidator Forecolor="Red" ID="RequiredFieldValidator4" ControlToValidate="Players" runat="server" ErrorMessage="Please select a Player"></asp:RequiredFieldValidator><br />
+                </div>
+                <asp:Button ID="addPitch" runat="server" Text="Add Pitch!" style="margin:0 auto;" CssClass="btn" OnClick="addPitch_Click"/>
+            
         </div>
     </form>
+    <h1 id="resultHeader" runat="server">Chances of Occurance</h1>
+    <div class="row">
+        <div class="col-md-3">
+            <h2 id="balls" runat="server"></h2>
+        </div>
+        <div class="col-md-3">
+            <h2 id="strikes" runat="server"></h2>
+        </div>
+        <div class="col-md-3">
+            <h2 id="fouls" runat="server"></h2>
+        </div>
+        <div class="col-md-3">
+            <h2 id="hits" runat="server"></h2>
+        </div>
+    </div>
     <TWebControl:WebControl runat="server" />
 </body>
 </html>

@@ -95,9 +95,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Batter.aspx" />
+    <Content Include="Images\baseball-closeup.jpg" />
     <Content Include="Images\baseball.png" />
     <Content Include="Images\batter.jpg" />
-    <Content Include="Images\graph.jpg" />
     <Content Include="Images\pitcher.jpg" />
     <Content Include="Index.aspx" />
     <Content Include="index.css" />
