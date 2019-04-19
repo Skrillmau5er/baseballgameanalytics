@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="BaseballGameAnalytics.Index" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="BaseballGameAnalytics.WebForm1" %>
 <%@ Register Src="~/WebUserControl1.ascx" TagName="WebControl" TagPrefix="TWebControl" %>
 <!DOCTYPE html>
 
@@ -39,43 +39,28 @@
             </ul>
         </div>
     </nav>
-    <div class="jumbotron" style="text-align: center;"><h1>Welcome to Baseball Analytics</h1></div>
+     <div class="jumbotron" style="text-align: center;"><h1>Add a pitch</h1></div>
     <div class="row">
-        <div class="col-lg-4">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="Images/graph.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Tableau Data Vizualizations</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="tableau.html" class="btn btn-danger">Explore!</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="Images/pitcher.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Pitch Predictions</h5>
-                    <p class="card-text">What pitch will a pitcher throw next</p>
-                    <a href="pitcher.aspx" class="btn btn-danger">Lets Go!</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="Images/batter.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Batter Predictions</h5>
-                    <p class="card-text">What outcomes will a certain pitch have against a batter</p>
-                    <a href="batter.aspx" class="btn btn-danger">Take Me There!</a>
-                </div>
-            </div>
+        <div class="col-lg-6 addForm">
+        <form id="form1" runat="server">
+
+            <asp:Label ID="Label1" runat="server" Text="Start Speed: "></asp:Label><asp:TextBox ID="startSpeed" runat="server" CssClass="form-control"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="startSpeed" runat="server" ErrorMessage="Please enter a number"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="startSpeed" ErrorMessage="Please enter a positive number" ValidationExpression="^[0-9][0-9]*$"></asp:RegularExpressionValidator>
+            
+            <asp:Label ID="Label2" runat="server" Text="End Speed: "></asp:Label><asp:TextBox ID="endSpeed" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="endSpeed" runat="server" ErrorMessage="Please enter a number"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="endSpeed" ErrorMessage="Please enter a positive number" ValidationExpression="^[0-9][0-9]*$"></asp:RegularExpressionValidator>
+
+            <asp:Label ID="Label3" runat="server" Text="Spin Rate: "></asp:Label><asp:TextBox ID="spinRate" runat="server" CssClass="form-control"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="spinRate" runat="server" ErrorMessage="Please enter a number"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="spinRate" ErrorMessage="Please enter a positive number" ValidationExpression="^[0-9][0-9]*$"></asp:RegularExpressionValidator>
+
+            <asp:Label ID="Label4" runat="server" Text="Pitch Type: "></asp:Label><asp:DropDownList ID="pitchType" runat="server" CssClass="form-control"></asp:DropDownList>
+            
+            <asp:Button ID="addData" runat="server" Text="Add Pitch!" CssClass="btn" />
+        </form>
         </div>
     </div>
-    <form id="form1" runat="server">
-        <div>
-        </div>
-    </form>
-    <TWebControl:WebControl runat="server" />
 </body>
 </html>

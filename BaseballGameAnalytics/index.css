@@ -1,4 +1,5 @@
 ﻿body {
+    font-family: 'Rubik', sans-serif;
 }
 
 .center{
@@ -78,4 +79,14 @@ select{
 
 .col-lg-6{
     text-align:center;
+}
+
+.addForm{
+    margin: 0 auto;
+}
+
+input.form-control{
+    width: 250px;
+    margin: 0 auto;
+    text-align: center;
 }
