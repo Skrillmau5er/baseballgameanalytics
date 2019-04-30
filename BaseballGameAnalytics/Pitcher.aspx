@@ -85,10 +85,36 @@
         <div class="col-lg-6">
             <asp:DropDownList ID="Players" runat="server" CssClass="form-control"></asp:DropDownList>
             <asp:Button ID="pitcherButton" class="btn" runat="server" Text="Run Prediction" OnClick="pitcherButton_Click" />
+                <div style="height: 700px;">
+        <form id="form2" runat="server">
+        <div>
+            <div class="form-container-left">
+                <label for="Players">Player</label>
+                <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control"></asp:DropDownList>
+                <label for="PitchType">Pitch Type 1</label>
+                <asp:DropDownList ID="Prev1" runat="server" CssClass="form-control"></asp:DropDownList>
+                <label for="PitchType">Pitch Type 2</label>
+                <asp:DropDownList ID="Prev2" runat="server" CssClass="form-control"></asp:DropDownList>
+                <label for="PitchType">Pitch Type 3</label>
+                <asp:DropDownList ID="Prev3" runat="server" CssClass="form-control"></asp:DropDownList>
+                <label for="PitchType">Pitch Type 4</label>
+                <asp:DropDownList ID="Prev4" runat="server" CssClass="form-control"></asp:DropDownList>
+                <label for="PitchType">Pitch Type 5</label>
+                <asp:DropDownList ID="Prev5" runat="server" CssClass="form-control"></asp:DropDownList>
+            </div>
+            <div class="form-container-right">
+                <label for="Balls">Ball Count</label>
+                <asp:TextBox ID="Balls" runat="server" CssClass="form-control"></asp:TextBox>
+                <label for="Strikes">Strike Count</label>
+                <asp:TextBox ID="Strikes" runat="server" CssClass="form-control"></asp:TextBox>
+                <label for="PitchHand">Player Pitching Hand</label>
+                <asp:DropDownList ID="PitchHand" runat="server" CssClass="form-control"></asp:DropDownList>
+                <label for="Inning">Inning</label>
+                <asp:TextBox ID="Inning" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
         </div>
     </form>
-    <asp:Label ID="Results" runat="server" Text=""></asp:Label>
-        <input type="button" value="Filter" onclick="addValuesToFilter();">
+        <input type="button" value="Filter" class="btn" onclick="addValuesToFilter();">
 
     <TWebControl:WebControl runat="server" />
 

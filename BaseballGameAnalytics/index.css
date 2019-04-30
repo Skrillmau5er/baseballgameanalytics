@@ -55,8 +55,8 @@ div.card{
 }
 
 .jumbotron {
-    background: rgb(80,123,200);
-    background: linear-gradient(328deg, rgba(80,123,200,1) 0%, rgba(255,0,0,1) 50%, rgba(64,104,193,1) 100%);
+    background: rgb(63,94,251);
+    background: linear-gradient(0deg, rgba(63,94,251,1) 0%, rgba(181,20,83,1) 63%, rgba(255,0,0,1) 100%);
     color: white;
     border-radius: 0px;
 }
