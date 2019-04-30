@@ -2,11 +2,6 @@
     font-family: 'Rubik', sans-serif;
 }
 
-.center{
-    text-align: center;
-    color: blue;
-}
-
 .navbar {
     border-bottom: #d3d3d3 1px solid;
 }
@@ -63,8 +58,8 @@ div.card{
 
 .btn {
     color: white;
-    background: rgb(255,0,0) !important;
-    background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(63,94,251,1) 100%, rgba(255,0,0,1) 100%) !important;
+    background: rgb(255,0,0);
+    background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(63,94,251,1) 100%, rgba(255,0,0,1) 100%);
     border: none;
     transition: 0.4s;
 }
@@ -83,44 +78,31 @@ select{
     width: 250px !important;
 }
 
-#form1 {
-    width: 60%;
-    height: 500px;
-    padding-left: 50px;
-    display: inline-block;
-}
-
-.form-container-left {
-    width: 50%;
-    height: 500px;
-    text-align: left;
-    float: left;
-}
-
-.form-container-right {
-    width: 50%;
-    height: 500px;
-    text-align: left;
-    float: left;
-}
-
-.addForm{
+.zeroauto{
     margin: 0 auto;
+}
+
+.center{
+    text-align:center;
 }
 
 input.form-control{
     width: 250px;
-    margin-left: 0;
     text-align: center;
 }
 
-.form-control {
-    margin-left: 0;
-    margin-bottom: 10px;
-
+iframe{
+    margin: 0 auto;
+    margin-top: 20px;
 }
 
-.resultsContainer {
-    float: right;
-    width: 40%;
+#addPitch{
+    background: blue;
+}
+
+#success {
+    background: -webkit-linear-gradient(rgba(63,94,251,1),rgba(255,0,0,1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 40px;
 }

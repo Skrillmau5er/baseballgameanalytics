@@ -14,6 +14,7 @@ namespace BaseballGameAnalytics
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            success.InnerHtml = "";
             var pitches = new Dictionary<string, string>
             {
                 {"CH","Changeup"},
@@ -78,6 +79,8 @@ namespace BaseballGameAnalytics
 
             command.Dispose();
 		    connection.Close();
+
+            success.InnerHtml = "Success";
         }
     }
 }

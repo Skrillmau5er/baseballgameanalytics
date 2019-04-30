@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="BaseballGameAnalytics.Index" %>
-<%@ Register Src="~/WebUserControl1.ascx" TagName="WebControl" TagPrefix="TWebControl" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -72,10 +71,10 @@
             </div>
         </div>
     </div>
-    <form id="form1" runat="server">
-        <div>
+        <footer class="page-footer">
+        <div class="footer-copyright text-center py-3">© <%Response.Write(DateTime.Now.Year.ToString()); %> Copyright:
+            <a href="https://skrillmau5er.com/">Skrillmau5er</a>
         </div>
-    </form>
-    <TWebControl:WebControl runat="server" />
+    </footer>
 </body>
 </html>
